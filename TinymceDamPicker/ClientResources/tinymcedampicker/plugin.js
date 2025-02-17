@@ -240,7 +240,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     const openWindow = () => {
         const options = {
             assetTypes: ['image'],
-            multiSelect: true
+            multiSelect: false
         };
         const encodedOptions = window.btoa(JSON.stringify(options));
         window.open(`https://cmp.optimizely.com/cloud/library-picker?pickerOptions=${encodedOptions}`, 'Library', 'popup');
