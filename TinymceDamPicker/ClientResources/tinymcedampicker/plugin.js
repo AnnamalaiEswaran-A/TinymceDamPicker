@@ -175,6 +175,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     };
 
     const handleChoose = (event) => {
+        console.log(event);
         const imageData = event.data[0];
         if (imageData) {
             if (dialogOpen == false) {
