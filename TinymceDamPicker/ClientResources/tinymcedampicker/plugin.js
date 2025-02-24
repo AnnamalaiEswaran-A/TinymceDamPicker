@@ -174,28 +174,26 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         });
     };
 
-    const handleChoose = (event) => {
-        const imageData = event.data[0];
-        if (imageData) {
-            if (dialogOpen == false) {
-                dialog = openDialog();
-            }
-            var altText = event.data[0].title;
-            if (event.data[0].alt && event.data[0].alt != '') {
-                altText = event.data[0].alt;
-            }
-            var damData = {
-                src: event.data[0].url,
-                alt: altText,
-                dimensions: {
-                    width: '' + event.data[0].width.toString(),
-                    height: '' + event.data[0].height.toString()
-                }
-            };
-
-            dialog.setData(damData);
+   const handleChoose = (event) => {
+    const imageData = event.data[0];
+    if (imageData) {
+            dialog = openDialog();
+            dialogOpen = true;
+        var altText = event.data[0].title;
+        if (event.data[0].alt && event.data[0].alt != '') {
+            altText = event.data[0].alt;
         }
-    };
+        var damData = {
+            src: event.data[0].url,
+            alt: altText,
+            dimensions: {
+                width: '' + event.data[0].width.toString(),
+                height: '' + event.data[0].height.toString()
+            }
+        };
+        dialog.setData(damData);
+    }
+};
 
     var updateButton = function (button) {
         var selectedElement = editor.selection.getNode();
